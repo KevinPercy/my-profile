@@ -1,11 +1,13 @@
 import React from 'react';
-import Header from './components/Layout/Header';
+import { BrowserRouter } from 'react-router-dom';
+import Layout from './hoc/Layout/Layout';
 
 function App() {
   return (
-    <div >
-      <Header />
-    </div>
+    <BrowserRouter>
+      <Layout />
+    </BrowserRouter>
+
   );
 }
 
