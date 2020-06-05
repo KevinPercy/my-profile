@@ -1,12 +1,17 @@
 import React from 'react';
-import { makeStyles, AppBar, Toolbar, Typography, Button, IconButton, Tab, Tabs } from '@material-ui/core';
+import { NavLink } from 'react-router-dom';
+import {
+    makeStyles, AppBar, Toolbar,
+    Typography, Button, IconButton,
+    Tab, Tabs
+} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+
 
 
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -24,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const ButtonAppBar = (props) => {
+const Header = (props) => {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
     const handleChange = (event, newValue) => {
@@ -52,13 +57,16 @@ const ButtonAppBar = (props) => {
                     centered
                 >
                     {props.sections.map((section) => (
-                        <Tab label={section.title} />
+                        <Tab
+                            key={section.title}
+                            label={section.title}
+                            component={NavLink}
+                            to={section.url} />
                     ))}
                 </Tabs>
-
             </Toolbar>
         </div>
     );
 }
 
-export default ButtonAppBar
+export default Header;

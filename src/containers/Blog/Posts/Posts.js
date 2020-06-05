@@ -15,7 +15,13 @@ class Posts extends Component {
         instance.get('/posts.json')
             .then(response => {
                 console.log("[Posts]", response.data)
-                const updatedPosts = response.data.slice(0, 4);
+                const posts = response.data.slice(0, 4);
+                const updatedPosts = posts.map((post) => {
+                    return {
+                        ...post,
+                        date_published: post.date_published.substring(0, 10)
+                    }
+                });
                 this.setState({ posts: updatedPosts });
             })
             .catch(error => {
@@ -25,11 +31,10 @@ class Posts extends Component {
     }
 
     render() {
-        let posts = <p style={{ textAlign: 'center' }}><strong>Something went Wrong!</strong></p>;
+        let posts = <p style={{ textAlign: 'center' }}><strong>Oops, algo inesperado sucedió!</strong></p>;
         if (!this.state.error) {
             posts = this.state.posts.map((post) => {
                 return (
-
                     <Post
                         key={post.id}
                         title={post.title}
@@ -38,20 +43,21 @@ class Posts extends Component {
                         image="https://i.pinimg.com/564x/51/bb/e3/51bbe3ccf6ffef95d429bb7226671c32.jpg"
                         imageTitle="imagenPost"
                         link="#" />
-
-
                 );
             });
         }
         return (
-            <div>
+            <main>
                 <section className="Posts">
-                    <Grid container spacing={4}>
+                    <Grid container
+                        justify="center"
+                        style={{ width: '100%', paddingLeft: '26px' }}
+                        spacing={4}
+                    >
                         {posts}
                     </Grid>
                 </section>
-
-            </div>
+            </main>
         );
     }
 }

@@ -11,6 +11,8 @@ import Hidden from '@material-ui/core/Hidden';
 const useStyles = makeStyles({
     card: {
         display: 'flex',
+        marginBottom: '20px',
+        marginTop: '20px'
     },
     cardDetails: {
         flex: 1,
@@ -24,7 +26,7 @@ const Post = (props) => {
     const classes = useStyles();
 
     return (
-        <Grid item xs={12} md={6}>
+        <Grid container spacing={1}>
             <CardActionArea component="a" href={props.link}>
                 <Card className={classes.card}>
                     <div className={classes.cardDetails}>
