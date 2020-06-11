@@ -3,17 +3,18 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { withStyles } from '@material-ui/core/styles';
+import { Grid } from '@material-ui/core';
 
 // import { connect } from 'react-redux';
 
 import Header from '../../components/Layout/Header';
 import Footer from '../../components/Layout/Footer';
 import Sidebar from '../../components/Sidebar/Sidebar';
-import { Grid } from '@material-ui/core';
+
 
 const useStyles = theme => ({
     mainGrid: {
-        marginTop: theme.spacing(3),
+        marginTop: theme.spacing(1),
     },
 });
 
@@ -39,7 +40,7 @@ class Layout extends Component {
     render() {
         const { classes } = this.props;
         const sections = [
-            { title: 'Posts', url: '/' },
+            { title: 'Posts', url: '/posts' },
             { title: 'Experimentos', url: '/experiments' }
         ];
 
@@ -59,20 +60,18 @@ class Layout extends Component {
         return (
             <Fragment>
                 <Header sections={sections} />
-                {/* <main> */}
-                <Grid container spacing={5} className={classes.mainGrid}>
-                    <Grid item md={8} xs={12}>
-                        {this.props.children}
+                <main>
+                    <Grid container spacing={2} className={classes.mainGrid}>
+                        <Grid item md={8} xs={12}>
+                            {this.props.children}
+                        </Grid>
+                        <Sidebar
+                            title={sidebar.title}
+                            description={sidebar.description}
+                            social={sidebar.social}
+                        />
                     </Grid>
-                    <Sidebar
-                        title={sidebar.title}
-                        description={sidebar.description}
-                        social={sidebar.social}
-                    />
-                </Grid>
-
-                {/* </main> */}
-
+                </main>
                 <Footer />
             </Fragment>
         )

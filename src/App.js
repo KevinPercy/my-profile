@@ -2,16 +2,19 @@ import React, { Component } from 'react';
 import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 
 import Layout from './hoc/Layout/Layout';
-import Experiments from './components/Experiments/Experiments';
+import Experiments from './containers/Blog/Experiments/Experiments';
 import Posts from './containers/Blog/Posts/Posts';
+import FullPost from './containers/Blog/Posts/FullPost';
 
 class App extends Component {
   render() {
     const routes = (
       <Switch>
-        <Route path="/experiments" component={Experiments} />
         <Route path="/" exact component={Posts} />
-        <Redirect to="/" />
+        <Route path="/experiments" component={Experiments} />
+        <Route path="/posts/:id" exact component={FullPost} />
+        <Route path="/posts" component={Posts} />
+        {/* <Redirect from="/" to="/posts" /> */}
       </Switch>
     );
     return (

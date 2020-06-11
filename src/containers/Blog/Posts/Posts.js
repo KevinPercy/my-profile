@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
+import { Route } from 'react-router-dom';
 
-
-import Post from '../../../components/Post/Post';
+import FullPost from './FullPost';
+import PostCard from '../../../components/Post/PostCard/PostCard';
 import instance from '../../../axios-blog';
 
 class Posts extends Component {
@@ -12,6 +13,7 @@ class Posts extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props)
         instance.get('/posts.json')
             .then(response => {
                 console.log("[Posts]", response.data)
@@ -30,19 +32,25 @@ class Posts extends Component {
             });
     }
 
+    postSelectedHandler = (id) => {
+        // this.props.history.push({ pathname: '/posts/' + id });
+        this.props.history.push({ pathname: '/posts/' + id });
+        // this.props.history.push('/' + id);
+    }
+
     render() {
         let posts = <p style={{ textAlign: 'center' }}><strong>Oops, algo inesperado sucedió!</strong></p>;
         if (!this.state.error) {
             posts = this.state.posts.map((post) => {
                 return (
-                    <Post
+                    <PostCard
                         key={post.id}
                         title={post.title}
                         date={post.date_published}
                         description={post.body}
                         image="https://i.pinimg.com/564x/51/bb/e3/51bbe3ccf6ffef95d429bb7226671c32.jpg"
                         imageTitle="imagenPost"
-                        link="#" />
+                        clicked={() => this.postSelectedHandler(post.id)} />
                 );
             });
         }
@@ -57,6 +65,7 @@ class Posts extends Component {
                         {posts}
                     </Grid>
                 </section>
+                {/* <Route path={this.props.match.url + '/:id'} component={FullPost} /> */}
             </main>
         );
     }
