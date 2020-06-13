@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
-import { Route } from 'react-router-dom';
 
-import FullPost from './FullPost';
 import PostCard from '../../../components/Post/PostCard/PostCard';
 import instance from '../../../axios-blog';
 
@@ -47,8 +45,8 @@ class Posts extends Component {
                         key={post.id}
                         title={post.title}
                         date={post.date_published}
-                        description={post.body}
-                        image="https://i.pinimg.com/564x/51/bb/e3/51bbe3ccf6ffef95d429bb7226671c32.jpg"
+                        description={post.description}
+                        image={post.image_link}
                         imageTitle="imagenPost"
                         clicked={() => this.postSelectedHandler(post.id)} />
                 );

@@ -43,7 +43,7 @@ const Header = (props) => {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" className={classes.title}>
-                        Mi Blog
+                        KEVIN PERCY
                     </Typography>
                     <Button color="inherit">Login</Button>
                 </Toolbar>

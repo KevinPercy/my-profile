@@ -26,7 +26,7 @@ class Experiments extends Component {
     }
 
     render() {
-        let repositories = <CircularProgress />;
+        let repositories = <div style={{ textAlign: 'center' }}><CircularProgress /></div>;
         if (!this.state.loading) {
             repositories = <ExperimentList reposList={this.state.repos} />
         }

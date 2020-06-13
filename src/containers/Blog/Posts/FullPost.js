@@ -34,9 +34,15 @@ class FullPost extends Component {
     }
 
     render() {
-        let fullPost = <p style={{ textAlign: 'center' }}>Please select a Post!</p>;
+        let fullPost = (<div>
+            <p style={{ textAlign: 'center' }}>Please select a Post!</p>
+        </div>);
         if (this.props.match.params.id) {
-            fullPost = <CircularProgress />;
+            fullPost = (
+                <div style={{ textAlign: "center" }}>
+                    <CircularProgress />;
+                </div>
+            );
         }
         if (this.state.loadedPost) {
             fullPost = (
