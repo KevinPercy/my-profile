@@ -11,10 +11,8 @@ class Posts extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props)
         instance.get('/posts.json')
             .then(response => {
-                console.log("[Posts]", response.data)
                 const posts = response.data.slice(0, 4);
                 const updatedPosts = posts.map((post) => {
                     return {
@@ -25,7 +23,6 @@ class Posts extends Component {
                 this.setState({ posts: updatedPosts });
             })
             .catch(error => {
-                console.log("[error]", error.data)
                 this.setState({ error: true })
             });
     }

@@ -15,12 +15,10 @@ class Experiments extends Component {
     componentDidMount() {
         axios.get('https://api.github.com/users/KevinPercy/repos')
             .then(response => {
-                console.log(response.data)
                 const repositoriesData = response.data;
                 this.setState({ repos: repositoriesData, loading: false });
             })
             .catch(error => {
-                console.log(error);
                 this.setState({ error: true });
             })
     }
