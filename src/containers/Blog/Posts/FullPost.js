@@ -21,9 +21,11 @@ class FullPost extends Component {
             if (!this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== +this.props.match.params.id)) {
                 instance.get('/posts/' + this.props.match.params.id)
                     .then((response) => {
+
                         this.setState({ loadedPost: response.data });
                     })
                     .catch(error => {
+
                         console.log("error", error);
                     });
             }
@@ -37,7 +39,7 @@ class FullPost extends Component {
         if (this.props.match.params.id) {
             fullPost = (
                 <div style={{ textAlign: "center" }}>
-                    <CircularProgress />;
+                    <CircularProgress />
                 </div>
             );
         }
