@@ -7,12 +7,12 @@ import Experiments from './containers/Blog/Experiments/Experiments';
 import Posts from './containers/Blog/Posts/Posts';
 import FullPost from './containers/Blog/Posts/FullPost';
 
-function initializeReactGA() {
-  ReactGA.initialize('UA-165333455-1');
-  ReactGA.pageview('/homepage');
-}
-
 class App extends Component {
+
+  initializeReactGA() {
+    ReactGA.initialize('UA-165333455-1');
+    ReactGA.pageview('/homepage');
+  }
   render() {
     const routes = (
       <Switch>
