@@ -9,11 +9,13 @@ import FullPost from './containers/Blog/Posts/FullPost';
 
 class App extends Component {
 
-  initializeReactGA() {
+  // initializeReactGA() {
+  //   ReactGA.initialize('UA-165333455-1');
+  //   ReactGA.pageview('/homepage');
+  // }
+  render() {
     ReactGA.initialize('UA-165333455-1');
     ReactGA.pageview('/homepage');
-  }
-  render() {
     const routes = (
       <Switch>
         <Route path="/" exact component={Posts} />
