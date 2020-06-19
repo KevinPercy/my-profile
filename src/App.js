@@ -9,7 +9,7 @@ import FullPost from './containers/Blog/Posts/FullPost';
 
 function initializeReactGA() {
   ReactGA.initialize('UA-165333455-1');
-  ReactGA.pageview('/posts');
+  ReactGA.pageview('/homepage');
 }
 
 class App extends Component {
