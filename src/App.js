@@ -6,6 +6,7 @@ import Layout from './hoc/Layout/Layout';
 import Experiments from './containers/Blog/Experiments/Experiments';
 import Posts from './containers/Blog/Posts/Posts';
 import FullPost from './containers/Blog/Posts/FullPost';
+import NewPost from './containers/Blog/NewPost/NewPost';
 
 class App extends Component {
 
@@ -18,6 +19,8 @@ class App extends Component {
         <Route path="/experiments" component={Experiments} />
         <Route path="/posts/:id" exact component={FullPost} />
         <Route path="/posts" component={Posts} />
+        <Route path="/posts" component={Posts} />
+        <Route path="/new-post" component={NewPost} />
         {/* <Redirect from="/" to="/posts" /> */}
       </Switch>
     );
