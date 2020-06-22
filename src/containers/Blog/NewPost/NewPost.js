@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import TextField from '@material-ui/core/TextField';
+
+import classes from './NewPost.css';
 
 class NewPost extends Component {
     state = {
@@ -12,18 +15,40 @@ class NewPost extends Component {
 
     render() {
         return (
-            <div>
+            <div className={classes.NewPost}>
+
                 <h1>Nuevo Post</h1>
-                <label>Titulo</label>
-                <input type="text" value={this.state.title} onChange={(event) => this.setState({ title: event.target.value })} />
-                <label>Autor</label>
-                <input type="text" value={this.state.autor} onChange={(event) => this.setState({ autor: event.target.value })} />
-                <label>Descripcion</label>
-                <input type="text" value={this.state.description} onChange={(event) => this.setState({ description: event.target.value })} />
-                <label>Link de la Imagen</label>
-                <input type="url" value={this.state.imageLink} onChange={(event) => this.setState({ imageLink: event.target.value })} />
-                <label>Contenido</label>
-                <textarea rows="5" value={this.state.content} onChange={(event) => this.setState({ content: event.target.value })} />
+                <TextField label="Titulo"
+                    variant="outlined"
+                    fullWidth
+                    onChange={(event) => this.setState({ title: event.target.value })} />
+                <TextField
+                    label="Autor"
+                    variant="outlined"
+                    fullWidth
+                    onChange={(event) => this.setState({ autor: event.target.value })} />
+                <TextField
+                    label="Descripcion"
+                    variant="outlined"
+                    fullWidth
+                    onChange={(event) => this.setState({ description: event.target.value })} />
+                <TextField
+                    label="URL de la imagen"
+                    variant="outlined"
+                    fullWidth
+                    type="url"
+                    onChange={(event) => this.setState({ imageLink: event.target.value })} />
+
+                <TextField
+                    label="Contenido"
+                    variant="outlined"
+                    fullWidth
+                    multiline
+                    rows={4}
+                    onChange={(event) => this.setState({ content: event.target.value })} />
+
+
+
             </div>
         );
     }

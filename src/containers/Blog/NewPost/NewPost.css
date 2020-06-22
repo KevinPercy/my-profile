@@ -1,0 +1,10 @@
+.NewPost {  
+    display: block;  
+    width: 80%;   
+    text-align: center;  
+    margin: auto;
+   
+}
+.NewPost div{
+    margin-bottom: 10px;
+}
